@@ -73,6 +73,8 @@ const interpret = (file, position = 0) => {
             return interpret(file, position + 2)
         case 20: // in a - read a line and repeatedly store in reg a
             if (input.length == 0) input.push(...require('readline-sync').question("> ").split(""), '\n')
+            // custom commands
+            if (input.join("").trim() == "auto") input.push(...require('./adventure').split(""))
             register[lval(file[position + 1])] = input.shift().charCodeAt(0)
             return interpret(file, position + 2)
         case 21: // noop
