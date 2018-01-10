@@ -10,5 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "readline-sync": "^1.4.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-tailcall-optimization": "^1.0.12",
+    "babel-preset-env": "^1.6.1"
   }
 }
