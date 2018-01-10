@@ -4,6 +4,7 @@
   "description": "",
   "main": "interpreter.js",
   "scripts": {
+    "start": "babel interpreter.js -o compiled.js & node compiled.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mim Hufford",

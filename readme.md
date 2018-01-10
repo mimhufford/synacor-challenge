@@ -1,8 +1,7 @@
 # Synacor Challenge
 
     npm install
-
-    node --harmony-tailcalls interpreter.js
+    npm start
 
 # Text Adventure
 
