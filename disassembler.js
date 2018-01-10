@@ -1,5 +1,3 @@
-'use strict'
-
 // take the raw file and map it in 2 bytes at a time as unsigned 16bit integers using little-endian
 const raw = require('fs').readFileSync('challenge.bin')
 const file = raw.toJSON().data.slice(raw.toJSON().data.length / 2).map((v, i) => raw.readUInt16LE(i * 2))
@@ -65,7 +63,7 @@ const disassemble = (file, position = 0, data = []) => {
                 data.push(position + " WMEM " + format(file[position + 1]) + " " + format(file[position + 2]))
                 return disassemble(file, position + 3, data)
             case 17: // call a - write next position to stack and jmp a
-                data.push(position + " CALL " + format(file[position + 2]))
+                data.push(position + " CALL " + format(file[position + 1]))
                 return disassemble(file, position + 2, data)
             case 18: // ret - return to address at top of stack
                 data.push(position + " RET")//

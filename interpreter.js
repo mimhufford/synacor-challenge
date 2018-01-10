@@ -75,6 +75,8 @@ const interpret = (file, position = 0) => {
             if (input.length == 0) input.push(...require('readline-sync').question("> ").split(""), '\n')
             // custom commands
             if (input.join("").trim() == "auto") input.push(...require('./adventure').split(""))
+            if (input.join("").trim() == "set") register[7] = 1
+            if (input.join("").trim() == "get") console.log(register)
             register[lval(file[position + 1])] = input.shift().charCodeAt(0)
             return interpret(file, position + 2)
         case 21: // noop
